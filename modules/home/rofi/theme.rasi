@@ -1,0 +1,64 @@
+* {
+    bg: #1e1e2ee6;
+    bg-alt: #313244e6;
+    fg: #cdd6f4;
+    accent: #cba6f7;
+
+    background-color: transparent;
+    text-color: @fg;
+}
+
+window {
+    width: 480px;
+    padding: 20px;
+    background-color: @bg;
+    border-radius: 16px;
+    border: 2px;
+    border-color: @accent;
+}
+
+inputbar {
+    children: [prompt, entry];
+    margin: 0 0 12px 0;
+    padding: 8px 12px;
+    background-color: @bg-alt;
+    border-radius: 10px;
+}
+
+prompt {
+    text-color: @accent;
+    font: "Symbols Nerd Font 14";
+    padding: 0 8px 0 0;
+    str: "󰍉 ";
+}
+
+entry {
+    placeholder: "Find...";
+    placeholder-color: #6c7086;
+}
+
+listview {
+    lines: 8;
+    columns: 1;
+    scrollbar: false;
+}
+
+element {
+    padding: 10px;
+    border-radius: 8px;
+    margin: 2px 0;
+}
+
+element selected {
+    background-color: @accent;
+    text-color: @bg;
+}
+
+element-icon {
+    size: 24px;
+    padding: 0 8px 0 4px;
+}
+
+element-text {
+    font: "JetBrainsMono Nerd Font 11";
+}
