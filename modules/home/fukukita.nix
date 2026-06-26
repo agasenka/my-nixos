@@ -7,6 +7,9 @@
     ./rofi
     ./picom
     ./dark
+    ./packages.nix
+    ./fish.nix
+    ./services
   ];
 
   home.username = "fukukita";

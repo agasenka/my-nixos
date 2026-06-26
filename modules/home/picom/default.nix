@@ -6,7 +6,7 @@
     backend = "glx";
     vSync = true;
     
-    activeOpacity = 0.90; 
+    activeOpacity = 0.90;
     inactiveOpacity = 0.75;
     
     fade = true;
@@ -40,6 +40,17 @@
       };
       blur-background = true;
       blur-background-exclude = [];
+
+      # Jendela fullscreen → opacity 100% (tidak transparan)
+      opacity-rule = [
+        "100:_NET_WM_STATE@:32a *= '_NET_WM_STATE_FULLSCREEN'"
+        "100:window_type = 'fullscreen'"
+        "100:name *?= 'YouTube'"
+        "100:name *?= 'Netflix'"
+        "100:name *?= 'Prime Video'"
+        "100:class_g = 'firefox' && _NET_WM_STATE@:32a *= '_NET_WM_STATE_FULLSCREEN'"
+        "100:class_g = 'Chromium' && _NET_WM_STATE@:32a *= '_NET_WM_STATE_FULLSCREEN'"
+      ];
     };
   };
 }

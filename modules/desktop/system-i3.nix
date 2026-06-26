@@ -1,7 +1,9 @@
 { config, pkgs, ... }:
 
 {
-  imports = [ ./packages ];
+  imports = [ 
+    ./packages
+  ];
 
   services.xserver = {
     enable = true;
@@ -10,7 +12,9 @@
     xkb.variant = "";
   };
 
-  services.displayManager.sddm.enable = true;
+  programs.fish.enable = true;
+  users.users.fukukita.shell = pkgs.fish;
+  services.displayManager.ly.enable = true;
   programs.git.enable = true;
   programs.firefox.enable = true;
 }
