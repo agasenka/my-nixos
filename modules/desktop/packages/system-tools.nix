@@ -1,17 +1,20 @@
 { pkgs, ... }:
 {
+  services.greenclip.enable = true;
+  services.udisks2.enable = true;
+
   environment.systemPackages = with pkgs; [
-    networkmanagerapplet
+    android-tools
     blueman
     brightnessctl
+    dunst
+    i3lock
+    libnotify
+    networkmanagerapplet
+    psmisc
+    scrcpy
     xclip
     xsel
     xss-lock
-    i3lock
-    dunst
-    libnotify
-    wget
-    psmisc
-    neovim
   ];
 }

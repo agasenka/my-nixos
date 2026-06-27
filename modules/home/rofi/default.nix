@@ -5,7 +5,7 @@
 
   programs.rofi = {
     enable = true;
-    theme = "theme";         
+    theme = "theme";
     extraConfig = {
       modi = "drun,run,window";
       font = "JetBrainsMono Nerd Font 12";

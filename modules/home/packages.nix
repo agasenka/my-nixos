@@ -2,11 +2,11 @@
 
 {
   home.packages = with pkgs; [
-    lolcat
+    appimage-run
+    cava
     cowsay
     figlet
+    lolcat
     tty-clock
-    cava
-    appimage-run
   ];
 }

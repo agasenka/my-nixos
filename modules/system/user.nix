@@ -3,7 +3,10 @@
   users.users."fukukita" = {
     isNormalUser = true;
     description = "fukukita";
-    extraGroups = [ "networkmanager" "wheel" ];
+    extraGroups = [
+      "networkmanager"
+      "wheel"
+    ];
     packages = with pkgs; [ ];
   };
 }

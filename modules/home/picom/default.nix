@@ -5,15 +5,18 @@
     enable = true;
     backend = "glx";
     vSync = true;
-    
+
     activeOpacity = 0.90;
     inactiveOpacity = 0.75;
-    
+
     fade = true;
     fadeDelta = 10;
-    fadeSteps = [ 0.03 0.03 ];
+    fadeSteps = [
+      0.03
+      0.03
+    ];
     shadow = true;
-    
+
     shadowExclude = [
       "name = 'Notification'"
       "class_g = 'Conky'"
@@ -39,9 +42,8 @@
         kern = "3x3box";
       };
       blur-background = true;
-      blur-background-exclude = [];
+      blur-background-exclude = [ ];
 
-      # Jendela fullscreen → opacity 100% (tidak transparan)
       opacity-rule = [
         "100:_NET_WM_STATE@:32a *= '_NET_WM_STATE_FULLSCREEN'"
         "100:window_type = 'fullscreen'"

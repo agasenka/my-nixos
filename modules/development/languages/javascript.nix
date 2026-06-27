@@ -1,10 +1,7 @@
 { pkgs, ... }:
+
 {
   environment.systemPackages = with pkgs; [
-    firefox
-    obsidian
-    pcmanfm
-    thunderbird
-    xarchiver
+    nodejs
   ];
 }

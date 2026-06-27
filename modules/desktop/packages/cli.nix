@@ -1,24 +1,28 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    btop
-    htop
-    fastfetch
-    ripgrep
-    fd
     bat
-    eza
-    duf
-    ncdu
-    tmux
+    broot
+    btop
     curl
-    wget
-    git
-    zip
-    unzip
-    p7zip
-    jq
-    tree
+    duf
+    dust
+    eza
+    fastfetch
+    glow
+    htop
     lm_sensors
+    ncdu
+    ouch
+    p7zip
+    pandoc
+    procs
+    rclone
+    tealdeer
+    tree
+    unzip
+    wget
+    yazi
+    zip
   ];
 }

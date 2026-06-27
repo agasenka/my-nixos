@@ -1,10 +1,12 @@
 { pkgs, ... }:
+
 {
   environment.systemPackages = with pkgs; [
-    firefox
-    obsidian
-    pcmanfm
-    thunderbird
-    xarchiver
+    delta
+    gh
+    git
+    git-lfs
+    gitui
+    lazygit
   ];
 }

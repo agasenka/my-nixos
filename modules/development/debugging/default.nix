@@ -1,10 +1,12 @@
 { pkgs, ... }:
+
 {
   environment.systemPackages = with pkgs; [
-    firefox
-    obsidian
-    pcmanfm
-    thunderbird
-    xarchiver
+    gdb
+    lldb
+    ltrace
+    perf
+    strace
+    valgrind
   ];
 }

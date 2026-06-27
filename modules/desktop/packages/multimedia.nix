@@ -1,16 +1,25 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
-    mpv
-    vlc
-    feh
-    imv
-    pavucontrol
-    playerctl
-    flameshot
-    peek
-    simplescreenrecorder
-    zathura
     calibre
+    easyeffects
+    feh
+    flameshot
+    gthumb
+    imv
+    inkscape
+    libresprite
+    losslesscut-bin
+    mediainfo
+    mpv
+    pavucontrol
+    pdfarranger
+    peek
+    pinta
+    playerctl
+    simplescreenrecorder
+    vlc
+    yt-dlp
+    zathura
   ];
 }
