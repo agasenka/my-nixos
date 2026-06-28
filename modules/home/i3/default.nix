@@ -35,7 +35,7 @@
 
       startup = [
         {
-          command = "feh --bg-fill ~/Pictures/wallpaper/1.jpg || feh --bg-solid '#282828'";
+          command = "feh --bg-fill ~/Pictures/wallpaper/current.jpg || feh --bg-fill ~/Pictures/wallpaper/1.jpg || feh --bg-solid '#282828'";
           always = true;
           notification = false;
         }
@@ -53,6 +53,7 @@
         "Mod4+a" = "exec rofi -show drun";
         "Mod4+e" = "exec thunar";
         "Mod4+w" = "exec firefox";
+        "Mod4+Shift+w" = "exec rofi-wallpaper";
         "Mod4+x" = "exec kitty nvim";
         "Mod4+Shift+t" = "exec kitty btop";
         "Mod4+Shift+c" = "exec kitty cava";

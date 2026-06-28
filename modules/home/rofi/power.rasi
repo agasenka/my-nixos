@@ -10,45 +10,49 @@ configuration {
 @import "theme.rasi"
 
 window {
-  width: 700px;
-  height: 180px;
-  padding: 25px;
+  width: 620px;
+  height: 160px;
+  padding: 30px;
   border: 2px;
   border-color: @accent;
-  border-radius: 16px;
+  border-radius: 20px;
   location: center;
+  background-color: @bg;
 }
 
 mainbox {
   children: [ listview ];
+  background-color: transparent;
 }
 
 listview {
   layout: horizontal;
-  spacing: 20px;
+  spacing: 15px;
   lines: 5;
   fixed-height: true;
   dynamic: false;
+  scrollbar: false;
+  background-color: transparent;
 }
 
 element {
-  padding: 15px;
-  border-radius: 12px;
-  background-color: @bg-alt;
   width: 100px;
+  padding: 20px 0px;
+  border-radius: 16px;
+  background-color: @bg-alt;
+  text-color: @fg;
+  cursor: pointer;
+}
+
+element selected {
+  background-color: @accent;
+  text-color: @bg;
 }
 
 element-text {
   font: "Symbols Nerd Font 36";
   horizontal-align: 0.5;
   vertical-align: 0.5;
-  text-color: @fg;
-}
-
-element selected {
-  background-color: @accent;
-}
-
-element-text selected {
-  text-color: @bg;
+  text-color: inherit;
+  background-color: transparent;
 }
