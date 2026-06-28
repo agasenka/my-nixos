@@ -1,12 +1,20 @@
-{ config, pkgs, ... }:
 {
-  users.users."fukukita" = {
+  config,
+  pkgs,
+  username,
+  ...
+}:
+{
+  programs.fish.enable = true;
+
+  users.users."${username}" = {
     isNormalUser = true;
-    description = "fukukita";
+    description = username;
     extraGroups = [
       "networkmanager"
       "wheel"
     ];
+    shell = pkgs.fish;
     packages = with pkgs; [ ];
   };
 }

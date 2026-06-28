@@ -11,7 +11,6 @@
     i3lock
     libnotify
     networkmanagerapplet
-    psmisc
     scrcpy
     xclip
     xsel

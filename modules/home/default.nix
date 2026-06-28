@@ -1,4 +1,9 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  username,
+  ...
+}:
 
 {
   imports = [
@@ -12,8 +17,8 @@
     ./services
   ];
 
-  home.username = "fukukita";
-  home.homeDirectory = "/home/fukukita";
+  home.username = username;
+  home.homeDirectory = "/home/${username}";
 
   home.sessionPath = [
     "$HOME/.local/bin"

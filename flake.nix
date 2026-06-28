@@ -16,21 +16,44 @@
       home-manager,
       ...
     }@inputs:
+    let
+      username = "fukukita";
+      hostname = "nixos";
+    in
     {
       nixosConfigurations = {
-        nixos = nixpkgs.lib.nixosSystem {
+        "${hostname}" = nixpkgs.lib.nixosSystem {
           system = "x86_64-linux";
-          specialArgs = { inherit inputs; };
+          specialArgs = {
+            inherit inputs username hostname;
+          };
           modules = [
             ./hosts/nixos
             home-manager.nixosModules.home-manager
             {
               home-manager.useGlobalPkgs = true;
               home-manager.useUserPackages = true;
-              home-manager.users.fukukita = import ./modules/home/fukukita.nix;
+              home-manager.extraSpecialArgs = {
+                inherit inputs username;
+              };
+              home-manager.users."${username}" = import ./modules/home;
             }
           ];
         };
+      };
+
+      formatter.x86_64-linux = nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style;
+
+      checks.x86_64-linux = {
+        formatting =
+          nixpkgs.legacyPackages.x86_64-linux.runCommand "check-formatting"
+            {
+              buildInputs = [ nixpkgs.legacyPackages.x86_64-linux.nixfmt-rfc-style ];
+            }
+            ''
+              find ${self} -name "*.nix" -exec nixfmt --check {} +
+              touch $out
+            '';
       };
     };
 }

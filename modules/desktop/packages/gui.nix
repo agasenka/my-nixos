@@ -1,7 +1,8 @@
 { pkgs, ... }:
 {
+  programs.firefox.enable = true;
+
   environment.systemPackages = with pkgs; [
-    firefox
     obsidian
     pcmanfm
     thunderbird

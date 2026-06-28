@@ -1,14 +1,14 @@
-{ config, pkgs, ... }:
+{
+  config,
+  pkgs,
+  username,
+  ...
+}:
 
 {
   imports = [
-    ./compilers
-    ./databases
-    ./debugging
-    ./infrastructure
-    ./languages
-    ./networking
-    ./security
-    ./tooling
+    ./languages.nix
+    ./sys-dev.nix
+    ./tools.nix
   ];
 }

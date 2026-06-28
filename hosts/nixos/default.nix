@@ -5,6 +5,7 @@
     ../../modules/desktop/system-i3.nix
     ../../modules/development
     ../../modules/system/boot.nix
+    ../../modules/system/diagnostics.nix
     ../../modules/system/networking.nix
     ../../modules/system/nix-ld.nix
     ../../modules/system/sound.nix
