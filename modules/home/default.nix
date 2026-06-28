@@ -7,7 +7,7 @@
 
 {
   imports = [
-    ./dark
+    ./appearance
     ./fish.nix
     ./i3
     ./kitty

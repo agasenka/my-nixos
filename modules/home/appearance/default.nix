@@ -1,17 +1,23 @@
 { config, pkgs, ... }:
 
 {
-  dconf.enable = false;
+  dconf.enable = true;
 
   gtk = {
     enable = true;
     theme = {
-      name = "Adwaita-dark";
-      package = pkgs.gnome-themes-extra;
+      name = "catppuccin-mocha-blue-standard";
+      package = pkgs.catppuccin-gtk.override {
+        accents = [ "blue" ];
+        variant = "mocha";
+      };
     };
     iconTheme = {
       name = "Papirus-Dark";
-      package = pkgs.papirus-icon-theme;
+      package = pkgs.catppuccin-papirus-folders.override {
+        flavor = "mocha";
+        accent = "blue";
+      };
     };
     gtk4.theme = config.gtk.theme;
   };
@@ -22,8 +28,8 @@
   };
 
   home.pointerCursor = {
-    name = "Adwaita";
-    package = pkgs.gnome-themes-extra;
+    name = "catppuccin-mocha-dark-cursors";
+    package = pkgs.catppuccin-cursors.mochaDark;
     size = 24;
   };
 

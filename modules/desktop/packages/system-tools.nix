@@ -5,6 +5,7 @@
 
   environment.systemPackages = with pkgs; [
     android-tools
+    arandr
     blueman
     brightnessctl
     dunst
