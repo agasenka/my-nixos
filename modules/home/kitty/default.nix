@@ -7,6 +7,7 @@
       name = "JetBrainsMono Nerd Font";
       size = 11;
     };
+    themeFile = "Catppuccin-Mocha";
     settings = {
       background_opacity = "0.85";
 
@@ -17,11 +18,6 @@
       cursor_stop_blinking_after = "15.0";
 
       enable_audio_bell = false;
-
-      foreground = "#cdd6f4";
-      background = "#1e1e2e";
-      include = "~/.config/kitty/catppuccin-mocha.conf";
-
     };
   };
 }
