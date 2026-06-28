@@ -11,9 +11,9 @@
         offset = "20x20";
         origin = "top-right";
         transparency = 0;
-        frame_color = "#cba6f7"; # mauve
-        background = "#1e1e2ee6"; # base + transparan
-        foreground = "#cdd6f4"; # text
+        frame_color = "#cba6f7";
+        background = "#1e1e2ee6";
+        foreground = "#cdd6f4";
         font = "JetBrainsMono Nerd Font 12";
         corner_radius = 12;
         padding = 16;

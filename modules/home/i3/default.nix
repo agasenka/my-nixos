@@ -8,6 +8,11 @@
 {
   imports = [ ./bar.nix ];
 
+  home.file.".config/i3/scripts/lock.sh" = {
+    source = ./scripts/lock.sh;
+    executable = true;
+  };
+
   xsession.windowManager.i3 = {
     enable = true;
     extraConfig = ''
@@ -56,7 +61,10 @@
         "Mod4+Shift+space" = "floating toggle";
         "Mod4+Shift+s" = "exec flameshot gui";
 
-        "Mod4+l" = "exec i3lock -c 1e1e2e";
+        "Mod4+l" = "exec ~/.config/i3/scripts/lock.sh";
+        "Mod4+Escape" = "exec rofi-power";
+        "Mod4+Shift+v" =
+          "exec rofi -modi \"clipboard:greenclip print\" -show clipboard -run-command '{cmd}'";
 
         "Mod4+Shift+p" = "exec playerctl play-pause";
         "Mod4+Shift+n" = "exec playerctl next";

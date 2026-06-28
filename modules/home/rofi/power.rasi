@@ -1,0 +1,54 @@
+configuration {
+  show-icons: false;
+  kb-select-1: "1";
+  kb-select-2: "2";
+  kb-select-3: "3";
+  kb-select-4: "4";
+  kb-select-5: "5";
+}
+
+@import "theme.rasi"
+
+window {
+  width: 700px;
+  height: 180px;
+  padding: 25px;
+  border: 2px;
+  border-color: @accent;
+  border-radius: 16px;
+  location: center;
+}
+
+mainbox {
+  children: [ listview ];
+}
+
+listview {
+  layout: horizontal;
+  spacing: 20px;
+  lines: 5;
+  fixed-height: true;
+  dynamic: false;
+}
+
+element {
+  padding: 15px;
+  border-radius: 12px;
+  background-color: @bg-alt;
+  width: 100px;
+}
+
+element-text {
+  font: "Symbols Nerd Font 36";
+  horizontal-align: 0.5;
+  vertical-align: 0.5;
+  text-color: @fg;
+}
+
+element selected {
+  background-color: @accent;
+}
+
+element-text selected {
+  text-color: @bg;
+}

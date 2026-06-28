@@ -1,0 +1,32 @@
+#!/usr/bin/env bash
+
+i3lock \
+  --blur 5 \
+  --clock \
+  --indicator \
+  --time-str="%H:%M:%S" \
+  --date-str="%A, %B %d" \
+  --inside-color=1e1e2e80 \
+  --ring-color=cba6f7 \
+  --line-color=00000000 \
+  --keyhl-color=89b4fa \
+  --ringver-color=a6e3a1 \
+  --insidever-color=1e1e2e80 \
+  --ringwrong-color=f38ba8 \
+  --insidewrong-color=1e1e2e80 \
+  --text-color=cdd6f4 \
+  --time-color=cdd6f4 \
+  --date-color=bac2de \
+  --layout-color=00000000 \
+  --verif-color=a6e3a1 \
+  --wrong-color=f38ba8 \
+  --greeter-color=cba6f7 \
+  --time-font="JetBrainsMono Nerd Font" \
+  --date-font="JetBrainsMono Nerd Font" \
+  --layout-font="JetBrainsMono Nerd Font" \
+  --verif-font="JetBrainsMono Nerd Font" \
+  --wrong-font="JetBrainsMono Nerd Font" \
+  --radius=120 \
+  --ring-width=12 \
+  --nofork \
+  --screensaver

@@ -8,7 +8,7 @@
     blueman
     brightnessctl
     dunst
-    i3lock
+    i3lock-color
     libnotify
     networkmanagerapplet
     scrcpy
