@@ -10,34 +10,53 @@ configuration {
 @import "theme.rasi"
 
 window {
-  width: 620px;
-  height: 160px;
-  padding: 30px;
-  border: 2px;
-  border-color: @accent;
-  border-radius: 20px;
+  transparency: "real";
   location: center;
+  anchor: center;
+  fullscreen: false;
+  width: 650px;
+
+  enabled: true;
+  margin: 0px;
+  padding: 0px;
+  border: 2px solid;
+  border-color: @accent;
+  border-radius: 24px;
   background-color: @bg;
 }
 
 mainbox {
-  children: [ listview ];
+  enabled: true;
+  spacing: 0px;
+  margin: 0px;
+  padding: 24px;
   background-color: transparent;
+  children: [ listview ];
 }
 
 listview {
-  layout: horizontal;
-  spacing: 15px;
-  lines: 5;
-  fixed-height: true;
-  dynamic: false;
+  enabled: true;
+  columns: 5;
+  lines: 1;
+  cycle: true;
+  dynamic: true;
   scrollbar: false;
+  layout: vertical;
+  reverse: false;
+  fixed-height: true;
+  fixed-columns: true;
+
+  spacing: 16px;
+  margin: 0px;
+  padding: 0px;
   background-color: transparent;
 }
 
 element {
-  width: 100px;
-  padding: 20px 0px;
+  enabled: true;
+  spacing: 0px;
+  margin: 0px;
+  padding: 22px 0px;
   border-radius: 16px;
   background-color: @bg-alt;
   text-color: @fg;
@@ -55,4 +74,5 @@ element-text {
   vertical-align: 0.5;
   text-color: inherit;
   background-color: transparent;
+  cursor: inherit;
 }

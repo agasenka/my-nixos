@@ -14,8 +14,10 @@
     executable = true;
     text = ''
       #!/usr/bin/env bash
-      killall -q polybar
-      while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
+      # Terminate running polybar instances (NixOS wrapper matches .polybar-wrappe)
+      pkill -u $UID -x polybar
+      pkill -u $UID -x .polybar-wrappe
+      while pgrep -u $UID -x polybar >/dev/null || pgrep -u $UID -x .polybar-wrappe >/dev/null; do sleep 0.5; done
 
       # Semua monitor kedetect otomatis!
       for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
@@ -53,10 +55,11 @@
 
     font-0 = JetBrainsMono Nerd Font:style=Regular:size=11;3
     font-1 = Symbols Nerd Font:style=Regular:size=14;3
+    font-2 = Noto Sans CJK JP:style=Regular:size=11;3
 
     modules-left = launcher i3
     modules-center = music
-    modules-right = pulseaudio memory cpu temperature date
+    modules-right = pulseaudio memory cpu temperature date power
 
     cursor-click = pointer
     enable-ipc = true
@@ -98,11 +101,14 @@
     [module/music]
     type = custom/script
     exec = ${pkgs.playerctl}/bin/playerctl metadata --format '{{artist}} - {{title}}' 2>/dev/null || echo ""
-    exec-if = ${pkgs.playerctl}/bin/playerctl status 2>/dev/null | grep -q "Playing\|Paused"
+    exec-if = ${pkgs.playerctl}/bin/playerctl status 2>/dev/null | grep -E -q "Playing|Paused"
     interval = 2
     format = " 󰝚  <label>"
     format-foreground = ''${colors.green}
     label-maxlen = 40
+    click-left = ~/.config/eww/scripts/toggle_widget.sh music &
+    scroll-up = ${pkgs.playerctl}/bin/playerctl next &
+    scroll-down = ${pkgs.playerctl}/bin/playerctl previous &
 
     [module/pulseaudio]
     type = internal/pulseaudio
@@ -120,6 +126,7 @@
     ramp-volume-1 = 󰖀
     ramp-volume-2 = 󰕾
 
+    click-left = wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle &
     click-right = pavucontrol &
 
     [module/memory]
@@ -131,6 +138,7 @@
     warn-percentage = 80
     format-warn-foreground = ''${colors.alert}
     label-warn = 󰍛 %percentage_used%%
+    click-left = kitty -e btop &
 
     [module/cpu]
     type = internal/cpu
@@ -141,6 +149,7 @@
     warn-percentage = 80
     format-warn-foreground = ''${colors.alert}
     label-warn = 󰻠 %percentage:2%%
+    click-left = kitty -e btop &
 
     [module/temperature]
     type = internal/temperature
@@ -167,5 +176,12 @@
     time = %H:%M
     label = 󰃭 %date%  󰥔 %time%
     format-foreground = ''${colors.primary}
+    click-left = dunstify -u low -r 12345 "Calendar" "<tt>$(cal)</tt>" &
+
+    [module/power]
+    type = custom/text
+    format = " 󰐥 "
+    format-foreground = ''${colors.alert}
+    click-left = ~/.config/eww/scripts/toggle_widget.sh power &
   '';
 }

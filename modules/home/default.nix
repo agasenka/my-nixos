@@ -8,6 +8,7 @@
 {
   imports = [
     ./appearance
+    ./eww
     ./fish.nix
     ./i3
     ./kitty
