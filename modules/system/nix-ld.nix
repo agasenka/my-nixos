@@ -12,16 +12,16 @@
       stdenv.cc.cc
       zlib
 
-      xorg.libX11
-      xorg.libXext
-      xorg.libXi
-      xorg.libXrender
-      xorg.libXtst
-      xorg.libXrandr
-      xorg.libXcursor
-      xorg.libXfixes
-      xorg.libXinerama
-      xorg.libxcb
+      libx11
+      libxext
+      libxi
+      libxrender
+      libxtst
+      libxrandr
+      libxcursor
+      libxfixes
+      libxinerama
+      libxcb
 
       glib
       gtk3
