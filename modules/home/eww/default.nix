@@ -7,7 +7,6 @@
     playerctl
   ];
 
-  # Automatically start eww daemon in i3 startup
   xsession.windowManager.i3.config.startup = [
     {
       command = "${pkgs.eww}/bin/eww daemon";
@@ -16,7 +15,6 @@
     }
   ];
 
-  # Modular configurations sourced from config/
   home.file.".config/eww/eww.yuck".source = ./config/eww.yuck;
   home.file.".config/eww/eww.scss".source = ./config/eww.scss;
 

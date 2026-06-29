@@ -3,13 +3,11 @@ PLAYERCTL="playerctl"
 CACHE_DIR="/tmp/eww-cover-cache"
 mkdir -p "$CACHE_DIR"
 
-# Fungsi untuk mendapatkan thumbnail YouTube dari URL
 get_youtube_thumbnail() {
   local url="$1"
   local video_id=""
-  # Pola untuk berbagai format URL YouTube
-  if [[ "$url" =~ (?:v=|youtu\.be/|youtube\.com/watch\?v=)([a-zA-Z0-9_-]{11}) ]]; then
-    video_id="${BASH_REMATCH[1]}"
+  if [[ "$url" =~ (v=|youtu\.be/|youtube\.com/watch\?v=)([a-zA-Z0-9_-]{11}) ]]; then
+    video_id="${BASH_REMATCH[2]}"
   elif [[ "$url" =~ youtube\.com/embed/([a-zA-Z0-9_-]{11}) ]]; then
     video_id="${BASH_REMATCH[1]}"
   elif [[ "$url" =~ youtube\.com/v/([a-zA-Z0-9_-]{11}) ]]; then
@@ -23,19 +21,24 @@ get_youtube_thumbnail() {
   fi
 }
 
-# Fungsi untuk mendapatkan durasi dari YouTube (cached)
 get_youtube_duration() {
   local url="$1"
   local hash=$(echo -n "$url" | md5sum | cut -d" " -f1)
   local cache_file="$CACHE_DIR/duration_${hash}.txt"
   if [ -f "$cache_file" ] && [ $(($(date +%s) - $(stat -c %Y "$cache_file"))) -lt 3600 ]; then
-    cat "$cache_file"
+    local cached=$(cat "$cache_file")
+    if [ "$cached" != "fail" ]; then
+      echo "$cached"
+    else
+      echo ""
+    fi
   else
-    local duration=$(yt-dlp --get-duration "$url" 2>/dev/null)
+    local duration=$(timeout 3 yt-dlp --no-playlist --get-duration "$url" 2>/dev/null)
     if [ -n "$duration" ]; then
       echo "$duration" > "$cache_file"
       echo "$duration"
     else
+      echo "fail" > "$cache_file"
       echo ""
     fi
   fi
@@ -54,9 +57,8 @@ url=$($PLAYERCTL metadata xesam:url 2>/dev/null)
 
 art_path=""
 if [ -n "$arturl" ]; then
-  # Jika arturl ada (Spotify, dll)
   if [[ "$arturl" == file://* ]]; then
-    art_path="$arturl"
+    art_path="${arturl#file://}"
   elif [[ "$arturl" == http://* || "$arturl" == https://* ]]; then
     hash=$(echo -n "$arturl" | md5sum | cut -d" " -f1)
     cache_path="$CACHE_DIR/$hash.png"
@@ -64,11 +66,10 @@ if [ -n "$arturl" ]; then
       curl -s "$arturl" -o "$cache_path"
     fi
     if [ -f "$cache_path" ]; then
-      art_path="file://$cache_path"
+      art_path="$cache_path"
     fi
   fi
 else
-  # Fallback untuk YouTube
   if [[ "$url" =~ youtube\.com|youtu\.be ]]; then
     thumbnail_url=$(get_youtube_thumbnail "$url")
     if [ -n "$thumbnail_url" ]; then
@@ -78,17 +79,15 @@ else
         curl -s "$thumbnail_url" -o "$cache_path"
       fi
       if [ -f "$cache_path" ]; then
-        art_path="file://$cache_path"
+        art_path="$cache_path"
       fi
     fi
   fi
 fi
 
-# Ambil posisi
 pos=$($PLAYERCTL position 2>/dev/null || echo 0)
 pos_int=$(printf "%.0f" "$pos" 2>/dev/null || echo 0)
 
-# Ambil durasi
 dur_secs=0
 dur=$($PLAYERCTL metadata mpris:length 2>/dev/null || echo 0)
 if [ "$dur" -gt 0 ]; then

@@ -2,7 +2,7 @@
                :initial '{"status": "Stopped", "title": "Not playing", "artist": "", "art": "", "position": 0, "duration": 100, "position_time": "0:00", "duration_time": "0:00", "progress": 0}'
                "bash ~/.config/eww/scripts/music_info.sh")
 
-(defpoll uptime :interval "1m" "uptime -p | sed -e 's/up //g'")
+(defpoll uptime :interval "1m" :initial "0:00" "uptime | sed -E 's/.*up[[:space:]]+([^,]+).*/\\1/'")
 (defpoll username :interval "24h" "whoami")
 
 (defwindow music_win_eDP-1
@@ -124,6 +124,8 @@
          :space-evenly false
          :valign "center"
          :halign "center"
+         :vexpand true
+         :hexpand true
       (box :class "power-profile"
            :orientation "v"
            :space-evenly false
@@ -143,7 +145,7 @@
                 :onclick "eww close-all; i3-msg mode default; systemctl poweroff" "󰐥")
         (button :valign "center" :halign "center"
                 :class "power-btn reboot"
-                :onclick "eww close-all; i3-msg mode default; systemctl reboot" "")
+                :onclick "eww close-all; i3-msg mode default; systemctl reboot" "")
         (button :valign "center" :halign "center"
                 :class "power-btn suspend"
                 :onclick "eww close-all; i3-msg mode default; systemctl suspend" "󰤄")

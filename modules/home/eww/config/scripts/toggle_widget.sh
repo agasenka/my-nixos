@@ -1,14 +1,12 @@
 #!/usr/bin/env bash
 widget="${1}"
 
-# If MONITOR is set (e.g. from Polybar), use it directly
 if [ -n "$MONITOR" ]; then
     monitor="$MONITOR"
 else
-    # Detect monitor based on mouse cursor position
     if command -v xdotool >/dev/null 2>&1; then
         eval $(xdotool getmouselocation --shell 2>/dev/null)
-        monitor="eDP-1" # Default fallback
+        monitor="eDP-1"
         while read -r name width height x_off y_off; do
             x_max=$((x_off + width))
             y_max=$((y_off + height))
@@ -22,10 +20,8 @@ else
     fi
 fi
 
-# Toggle the widget on the detected monitor
 eww open --toggle "${widget}_win_${monitor}"
 
-# Check if the widget is active after toggle to switch i3 modes for Escape key support
 sleep 0.1
 if eww active-windows | grep -q "${widget}_win"; then
     if [ "$widget" = "power" ]; then
