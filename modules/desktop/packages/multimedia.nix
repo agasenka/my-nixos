@@ -21,5 +21,8 @@
     vlc
     yt-dlp
     zathura
+    krita
+    gimp
+    photoqt
   ];
 }

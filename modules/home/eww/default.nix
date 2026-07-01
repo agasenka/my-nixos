@@ -17,6 +17,7 @@
 
   home.file.".config/eww/eww.yuck".source = ./config/eww.yuck;
   home.file.".config/eww/eww.scss".source = ./config/eww.scss;
+  home.file.".config/eww/power.scss".source = ./config/power.scss;
 
   home.file.".config/eww/scripts/music_info.sh" = {
     source = ./config/scripts/music_info.sh;

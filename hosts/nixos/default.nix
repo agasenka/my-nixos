@@ -10,6 +10,7 @@
     ../../modules/system/nix-ld.nix
     ../../modules/system/sound.nix
     ../../modules/system/user.nix
+    ../../modules/system/graphics.nix
     ./hardware-configuration.nix
   ];
 

@@ -8,5 +8,6 @@
     pcmanfm
     thunderbird
     xarchiver
+    steam
   ];
 }
