@@ -25,7 +25,6 @@
     gimp
     photoqt
 
-    # Guitar and Audio
     guitarix
     helvum
     qpwgraph
