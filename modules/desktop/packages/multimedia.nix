@@ -24,5 +24,14 @@
     krita
     gimp
     photoqt
+
+    # Guitar and Audio
+    guitarix
+    helvum
+    qpwgraph
+    carla
+    calf
+    lsp-plugins
+    tuxguitar
   ];
 }
