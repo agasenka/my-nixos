@@ -13,6 +13,7 @@
     extraGroups = [
       "networkmanager"
       "wheel"
+      "audio"
     ];
     shell = pkgs.fish;
     packages = with pkgs; [ ];
