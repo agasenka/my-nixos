@@ -100,7 +100,6 @@
         "Mod4+Shift+Up" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+";
         "Mod4+Shift+Down" = "exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-";
 
-
         "XF86AudioPlay" = "exec playerctl play-pause";
         "XF86AudioNext" = "exec playerctl next";
         "XF86AudioPrev" = "exec playerctl previous";

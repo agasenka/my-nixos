@@ -12,6 +12,7 @@
     losslesscut-bin
     mediainfo
     mpv
+    obs-studio
     pavucontrol
     pdfarranger
     peek

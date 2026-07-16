@@ -11,10 +11,16 @@
 
     fade = true;
     fadeDelta = 10;
-    fadeSteps = [ 0.03 0.03 ];
+    fadeSteps = [
+      0.03
+      0.03
+    ];
 
     shadow = true;
-    shadowOffsets = [ (-7) (-7) ];
+    shadowOffsets = [
+      (-7)
+      (-7)
+    ];
     shadowExclude = [
       "name = 'Notification'"
       "class_g = 'Conky'"
