@@ -11,6 +11,7 @@
     ../../modules/system/sound.nix
     ../../modules/system/user.nix
     ../../modules/system/graphics.nix
+    ../../modules/system/flatpak.nix
     ./hardware-configuration.nix
   ];
 

@@ -1,18 +1,36 @@
 { pkgs, ... }:
 {
   environment.systemPackages = with pkgs; [
+    ani-cli
+    aria2
+    bat
+    bottom
     broot
+    btop
+    cbonsai
     duf
     dust
+    eza
+    fzf
+    gallery-dl
     glow
     htop
+    lazygit
     lm_sensors
+    mangal
+    mov-cli
     ncdu
+    ncmpcpp
     ouch
     pandoc
+    pipes-rs
     procs
     rclone
+    spotdl
     tealdeer
+    trackma
     yazi
+    zellij
+    zoxide
   ];
 }
