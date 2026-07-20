@@ -66,7 +66,7 @@ A set of system diagnostics and network utility tools is integrated globally (`m
 
 ---
 
-## ⚙️ Configuration Rules
+## ⚙️ Configuration Rules 
 
 - **No Multi-Host Over-engineering**: Designed exclusively for a single laptop.
 - **No Hardcoded Values**: Common values such as the primary username (`fukukita`) and hostname (`nixos`) are defined once in `flake.nix` and passed down to all modules.
